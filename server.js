@@ -44,7 +44,7 @@ app.all('*', function (req, res, next) {
                 //console.log(response.statusCode);
                 //res.send(500, { error: error });
                 if (error) {
-                    console.error(error);
+                     console.error(error);
                 }
                 //                console.log(body);
             }).pipe(res);
