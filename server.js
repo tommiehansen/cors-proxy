@@ -5,7 +5,7 @@ var express = require('express'),
     path = require('path'),
     app = express();
 
-var myLimit = typeof(process.argv[2]) != 'undefined' ? process.argv[2] : '100kb';
+var myLimit = typeof(process.argv[2]) != 'undefined' ? process.argv[2] : '10kb';
 console.log('Using limit: ', myLimit);
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -16,7 +16,7 @@ app.all('*', function (req, res, next) {
     
     // Set CORS headers: allow all origins, methods, and headers: you may want to lock this down in a production environment
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
     res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers') || 'origin, content-type, accept, location, code');
 
     if (req.method === 'OPTIONS') {
